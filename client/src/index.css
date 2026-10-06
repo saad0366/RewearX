@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fbf9f4;
+  --color-border: #e9e4db;
+  --color-input: #f4f0e6;
+  --color-primary: #1e1b18;
+  --color-primary-foreground: #fbf9f4;
+  --color-secondary: #ebdcc9;
+  --color-muted: #f4eae1;
+  --color-muted-foreground: #7d7265;
+  --color-accent: #2e4d3a;
+  --color-accent-foreground: #f4eae1;
+  
+  /* Modern Minimalist Font System */
+  --font-sans: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-body: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-headings: 'Montserrat', 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1e1b18;
+    background-color: #fbf9f4;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-headings {
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

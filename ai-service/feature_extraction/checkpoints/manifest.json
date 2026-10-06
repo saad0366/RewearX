@@ -1,0 +1,17 @@
+{
+  "file": "phase3_stage_a_best.pt",
+  "sha256": "b2911bd9d1ed6e737c3e2a4695518d48eb829fd2489fa224fa4b317340af785a",
+  "bytes": 16608947,
+  "architecture": "efficientnet_b0_six_head_v2",
+  "unsupported_classes": {
+    "category": [
+      "skirt"
+    ],
+    "sleeve_length": [
+      "half"
+    ],
+    "season": [
+      "all_season"
+    ]
+  }
+}

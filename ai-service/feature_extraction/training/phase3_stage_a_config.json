@@ -1,0 +1,48 @@
+{
+  "stage": "A",
+  "seed": 42,
+  "batch_size": 32,
+  "batches_per_epoch": 48,
+  "max_epochs": 10,
+  "patience": 3,
+  "learning_rate": 0.0001,
+  "weight_decay": 0,
+  "backbone_trainable": false,
+  "batchnorm_updates": false,
+  "active_heads": [
+    "occasion",
+    "season"
+  ],
+  "frozen_heads": [
+    "color",
+    "category",
+    "sleeve_length",
+    "pattern"
+  ],
+  "category_trainable_rows": [],
+  "skirt_initialization": "all original Phase2 category rows preserved; row 8 masked and never trained",
+  "source_quotas": {
+    "hf": 12,
+    "wedding": 12,
+    "party": 8
+  },
+  "max_image_draws_per_epoch": 3,
+  "class_weights": "train-only inverse frequency capped at 3 for occasion/season; unsupported classes zero",
+  "checkpoint_gate": "validation-only improvements in occasion and season; exact original masked and raw category predictions, protected metrics, all frozen logits and parameters unchanged",
+  "training_checkpoint_deployable": true,
+  "prediction_policy": {
+    "version": "occasion_season_stage_a_v1",
+    "unsupported_classes": {
+      "category": [
+        "skirt"
+      ],
+      "sleeve_length": [
+        "half"
+      ],
+      "season": [
+        "all_season"
+      ]
+    },
+    "interpretation": "Predictions and confidence are conditional on supported classes; unsupported inputs are not detected."
+  }
+}

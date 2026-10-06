@@ -1,0 +1,4 @@
+"use strict";
+const {Category,sequelize}=require('../models');
+const groups={Men:['T-Shirts','Shirts','Hoodies','Sweaters','Jackets','Jeans','Trousers'],Women:['T-Shirts','Shirts','Hoodies','Sweaters','Jackets','Jeans','Trousers','Dresses','Kurtis','Shalwar Kameez','Lehengas'],Unisex:['T-Shirts','Hoodies','Sweaters','Jackets']};
+(async()=>{try{await sequelize.authenticate();for(const [name,children] of Object.entries(groups)){const [parent]=await Category.findOrCreate({where:{name,parentId:null},defaults:{isActive:true}});for(const child of children)await Category.findOrCreate({where:{name:child,parentId:parent.id},defaults:{isActive:true}});}console.log('Category catalog seeded; no existing records removed and no user accounts created.');}finally{await sequelize.close();}})().catch(()=>{console.error('Category seed failed.');process.exitCode=1;});

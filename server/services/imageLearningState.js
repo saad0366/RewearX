@@ -1,0 +1,7 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+function atomicJson(file,value){fs.mkdirSync(path.dirname(file),{recursive:true});const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(value,null,2),{mode:0o600});try{fs.renameSync(temp,file);}finally{if(fs.existsSync(temp))fs.unlinkSync(temp);}}
+function readState(file){return fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):{format:1,consumed:[],jobs:{}};}
+function selectBatch(examples,state,threshold){if(!Number.isInteger(threshold)||threshold<1||threshold>24)throw Error('Threshold must be 1..24');const seen=new Set(),consumed=new Set(state.consumed);const pending=examples.filter(x=>!consumed.has(x.fingerprint)&&!seen.has(x.item_id)&&seen.add(x.item_id));return pending.length>=threshold?pending.slice(0,threshold):[];}
+function acquireLock(file){fs.mkdirSync(path.dirname(file),{recursive:true});try{const fd=fs.openSync(file,'wx',0o600);fs.writeFileSync(fd,JSON.stringify({pid:process.pid}));fs.closeSync(fd);return ()=>{try{const owner=JSON.parse(fs.readFileSync(file,'utf8'));if(owner.pid===process.pid)fs.unlinkSync(file);}catch{}};}catch(e){if(e.code!=='EEXIST')throw e;try{const owner=JSON.parse(fs.readFileSync(file,'utf8'));try{process.kill(owner.pid,0);return null;}catch(error){if(error.code!=='ESRCH')return null;}fs.unlinkSync(file);return acquireLock(file);}catch{return null;}}}
+module.exports={atomicJson,readState,selectBatch,acquireLock};

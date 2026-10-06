@@ -1,0 +1,63 @@
+{
+  "jacket": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "sleeve_type",
+      "collar_type",
+      "closure_type",
+      "pattern"
+    ]
+  },
+  "tshirt": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "sleeve_type",
+      "neck_type",
+      "pattern"
+    ]
+  },
+  "shirt": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "sleeve_type",
+      "collar_type",
+      "pattern"
+    ]
+  },
+  "jeans": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "waist_type",
+      "length",
+      "wash",
+      "pattern"
+    ]
+  },
+  "dress": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "length",
+      "neck_type",
+      "pattern"
+    ]
+  },
+  "hoodie": {
+    "features": [
+      "color",
+      "material",
+      "fit",
+      "closure_type",
+      "pattern"
+    ]
+  }
+}

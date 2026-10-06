@@ -1,0 +1,20 @@
+{
+  "conflicts": [
+    {
+      "path": "server/controllers/itemController.js",
+      "latest_sha256": "e1a2920ab409c5f78fe1a478482cfc29de6c22c9e29bab081b2b588ec6d194cc"
+    },
+    {
+      "path": "server/models/ClothingItem.js",
+      "latest_sha256": "d2946e4e4da8b5fa85029f76983d9a15522b89138a48bfb0a1aded2460f09ddc"
+    },
+    {
+      "path": "server/models/UserPreferences.js",
+      "latest_sha256": "6bb786b439cc6b7f359e2fa97b5cff496fef8b4b0c381b8cfb0ff504ef5c5e6b"
+    },
+    {
+      "path": "server/services/userService.js",
+      "latest_sha256": "e460afcf3a12403f42f2f9399b0f3e7c84252bb949607c71d4f0831df52dc0b6"
+    }
+  ]
+}
